@@ -1,0 +1,27 @@
+﻿@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+*@
+@{
+}
+@model List<Book>
+<form method="post" >
+    <table cellpadding="0" cellspacing="0">
+        <tr>
+            <td>ID</td>
+            <td>bookname</td>
+            <td>author</td>
+            <td>yearpub</td>
+            <td>noofpage</td>
+        </tr>
+        @foreach (Book b in Model)
+        {
+            <tr>
+                <td>@b.iBookID</td>
+                <td>@b.sBookname</td>
+                <td>@b.sAuthor</td>
+                <td>@b.iYearPub</td>
+                <td>@b.iNoOfPages</td>
+            </tr>
+        }
+    </table>
+</form>
