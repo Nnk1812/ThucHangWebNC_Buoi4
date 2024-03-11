@@ -3,55 +3,52 @@
 }
 @model ThucHangWebNC_Buoi4.Models.Book
 <h2>Add Book</h2>
+<a asp-action="Views" asp-controller="Home">View</a>
+<form asp-action="Index" asp-controller="Home">
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        <div class="form-horizontal">
+            <hr />
 
-@using (Html.BeginForm())
-{
-    <a asp-action="Views" asp-controller="Home">View</a>
+            <div class="form-group">
+                @Html.LabelFor(model => model.sBookname, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sBookname, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sBookname, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    @Html.AntiForgeryToken()
+            <div class="form-group">
+                @Html.LabelFor(model => model.sAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.sAuthor, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.sAuthor, "", new { @class = "text-danger" })
+                </div>
+            </div>
 
-    <div class="form-horizontal">
-        <hr />
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.sBookname, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.sBookname, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.sBookname, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.iYearPub, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.iYearPub, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.iYearPub, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                @Html.LabelFor(model => model.iNoOfPages, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.EditorFor(model => model.iNoOfPages, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.iNoOfPages, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Add" class="btn btn-default" />
+                </div>
             </div>
         </div>
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.sAuthor, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.sAuthor, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.sAuthor, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.iYearPub, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.iYearPub, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.iYearPub, "", new { @class = "text-danger" })
-            </div>
-        </div>
-        
-        <div class="form-group">
-            @Html.LabelFor(model => model.iNoOfPages, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EditorFor(model => model.iNoOfPages, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.iNoOfPages, "", new { @class = "text-danger" })
-            </div>
-        </div>
+    }
 
-        
-
-        <div class="form-group">
-            <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Add" class="btn btn-default" />
-            </div>
-        </div>
-    </div>
-}
-
+</form>
